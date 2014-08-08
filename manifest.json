@@ -1,0 +1,25 @@
+{
+   "manifest_version": 2,
+   "name": "Spotify VK Downloader",
+   "description": "Downloads Spotify playlist tracks using VK.",
+   "version": "0.1",
+   "minimum_chrome_version": "16.0.884",
+   "icons": {
+      "128": "icon32.png"
+   },
+   "permissions": [ "tabs", "https://*/*", "http://*/*", "downloads", "storage" ],
+   "browser_action": {
+      "default_title": "Spotify VK Downloader",
+      "default_popup": "pages/main.html",
+      "default_icon": "icon32.png"
+   },
+   "content_scripts": [
+      {
+         "matches": ["https://play.spotify.com/*"],
+         "js": [
+            "js/lib/jquery-1.9.1.min.js",
+            "js/content.js"
+         ]
+      }
+   ]
+}

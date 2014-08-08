@@ -1,0 +1,29 @@
+body {
+	width: 400px;
+	padding: 15px;
+}
+
+div.thumbnail {
+	border: none;
+	box-shadow: none;
+}
+
+#login_to_vk_panel,
+#song_list_panel {
+	display: none;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+	padding: 2px;
+	font-size: 12px;
+}
+
+.song-list-wrapper {
+	overflow: scroll;
+	height: 500px;
+}

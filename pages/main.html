@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify Vk Downloader</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="message_panel" class="row">
+        <div id="message">Vk Spotify Downloader</div>
+    </div>
+
+    <div id="login_to_vk_panel" class="row">
+        <div class="col-xs-12">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>Login to <a href="http://vk.com/">vk.com</a></h3>
+                    <p>Please login to <a href="http://vk.com/">vk.com</a> to begin using SpotifyVkDownloader</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="actions_panel" class="row">
+        <a href="#" class="btn btn-danger btn-xs pull-left" role="button" id="close_button">Close</a>
+        <a href="#" class="btn btn-primary btn-sm pull-right" role="button" id="action_button">Download songs</a>
+    </div>
+
+    <div id="song_list_panel" class="row">
+        <div class="col-xs-12 song-list-wrapper">
+            <table class="table table-condensed" id="song_list">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" id="check_all" /></th>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="../js/lib/jquery-1.9.1.min.js"></script>
+<script src="../js/lib/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
