@@ -26,50 +26,53 @@
 
 // Returns songs as array
 function getSongs() {
-      var songs = [];
-      var $iframe = jQuery("div.front iframe");
-      var $rows = $iframe.contents().find("tr.tl-row");
-      var albumArtist = $iframe.contents().find("div.header-bar").find("a[data-uri^='spotify:artist']").text();
+   var songs = [];
+   var $iframe = jQuery("div.front iframe");
+   if ($iframe.length == 0) {
+      $iframe = jQuery("div.root iframe").last();
+   }
+   var $rows = $iframe.contents().find("tr.tl-row");
+   var albumArtist = $iframe.contents().find("div.header-bar").find("a[data-uri^='spotify:artist']").text();
    if ($rows.length) {
-         // Playlist context
-         $rows.each(function () {
-            // Removes excessive whitespace from string
-            function filterWhitespace(string) {
-               return string.trim().replace(/(\r\n|\n|\r|↵)/gm," ").replace(/ +/g, " ");
-            }
+      // Playlist context
+      $rows.each(function () {
+         // Removes excessive whitespace from string
+         function filterWhitespace(string) {
+            return string.trim().replace(/(\r\n|\n|\r|↵)/gm, " ").replace(/ +/g, " ");
+         }
 
-            var $row = $(this);
-            var title = filterWhitespace($row.find("td.tl-name").text());
-            var artist = filterWhitespace($row.find("td.tl-artists").text());
-            if (title == "") {
-               title = filterWhitespace($row.find("td.tl-name-with-featured").text());
-            }
-            if (artist == "") {
-               artist = albumArtist;
-            }
-            if (!(title == "" || artist == "")) {
-               songs.push({
-                  "title": title,
-                  "artist": artist
-               });
-            }
-         });
-      }
-      return songs;
+         var $row = $(this);
+         var title = filterWhitespace($row.find("td.tl-name").text());
+         var artist = filterWhitespace($row.find("td.tl-artists").text());
+         if (title == "") {
+            title = filterWhitespace($row.find("td.tl-name-with-featured").text());
+         }
+         if (artist == "") {
+            artist = albumArtist;
+         }
+         if (!(title == "" || artist == "")) {
+            songs.push({
+               "title": title,
+               "artist": artist
+            });
+         }
+      });
+   }
+   return songs;
 }
 
 // Handles messages from main script
 chrome.runtime.onMessage.addListener(
    function (request, sender, sendResponseCallback) {
-        var response = {};
-        switch (request.command) {
-           case "get_songs":
-              var songs = getSongs();
-              response["songs"] = songs;
-              break;
-           case "download_songs":
-              break;
-        }
-        sendResponseCallback(response);
-     }
+      var response = {};
+      switch (request.command) {
+         case "get_songs":
+            var songs = getSongs();
+            response["songs"] = songs;
+            break;
+         case "download_songs":
+            break;
+      }
+      sendResponseCallback(response);
+   }
 );
