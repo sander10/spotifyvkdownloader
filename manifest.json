@@ -2,7 +2,7 @@
    "manifest_version": 2,
    "name": "Spotify VK Downloader",
    "description": "Downloads Spotify playlist tracks using VK.",
-   "version": "0.1",
+   "version": "0.2",
    "minimum_chrome_version": "16.0.884",
    "icons": {
       "128": "icon32.png"
