@@ -31,8 +31,14 @@ function getSongs() {
    if ($iframe.length == 0) {
       $iframe = jQuery("div.root iframe").last();
    }
+   if ($iframe.length == 0) {
+      $iframe = jQuery("#main iframe").last();
+   }
    var $rows = $iframe.contents().find("tr.tl-row");
    var albumArtist = $iframe.contents().find("div.header-bar").find("a[data-uri^='spotify:artist']").text();
+   if (!albumArtist.length) {
+      albumArtist = $iframe.contents().find("a[data-uri*='spotify:artist:']").first().text()
+   }
    if ($rows.length) {
       // Playlist context
       $rows.each(function () {

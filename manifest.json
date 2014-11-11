@@ -1,25 +1,22 @@
 {
-   "manifest_version": 2,
-   "name": "Spotify VK Downloader",
+   "browser_action": {
+      "default_icon": "icon32.png",
+      "default_popup": "pages/main.html",
+      "default_title": "Spotify VK Downloader"
+   },
+   "content_scripts": [ {
+      "js": [ "js/lib/jquery-1.9.1.min.js", "js/content.js" ],
+      "matches": [ "https://play.spotify.com/*" ]
+   } ],
    "description": "Downloads Spotify playlist tracks using VK.",
-   "version": "0.2",
-   "minimum_chrome_version": "16.0.884",
    "icons": {
       "128": "icon32.png"
    },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuOvLyMQhTrT8VHgDFtGivAmxLQVvInodB+eA2ZXj9181eSVDqIy4T+sReNsMfOCsabSgzutscJXbGFJuaPkJQRt2Id2Mw68bu1vwHSkqNtnenO222+oEYKcZm+uQPPSP1jDHeqKyZu1asI/iXadhitirD7F8dNvpnHL7tOGNuggh1mbl8rg/vyVIhw2LEYVOPT8fxxvA/X71y4hQCJuFMVC6+hKMLOp+HluSaJKMwFex9H2fQghRA+pDHWGhMoZR8ZCuTwJnJS4/RajFKiLjmKiWiYAEPAPj0HGRmCa3VvMAG5r4Qogq9NLdeSEXPaSU8HCeP/YjVOwvxt+wpPU3UwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "16.0.884",
+   "name": "Spotify VK Downloader",
    "permissions": [ "tabs", "https://*/*", "http://*/*", "downloads", "storage" ],
-   "browser_action": {
-      "default_title": "Spotify VK Downloader",
-      "default_popup": "pages/main.html",
-      "default_icon": "icon32.png"
-   },
-   "content_scripts": [
-      {
-         "matches": ["https://play.spotify.com/*"],
-         "js": [
-            "js/lib/jquery-1.9.1.min.js",
-            "js/content.js"
-         ]
-      }
-   ]
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.3.2"
 }
